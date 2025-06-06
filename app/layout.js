@@ -17,6 +17,9 @@ const geistMono = Geist_Mono({
 
 export const metadata = {
   title: "QuickCard",
+    icons:{
+    icon:"logo.png",
+  },
   description: "QuickCard - Your all-in-one platform for creating, updating, and tracking cards.",
 };
 
