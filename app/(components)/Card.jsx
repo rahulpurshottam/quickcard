@@ -6,18 +6,21 @@ import Link from "next/link";
 
 const Card = ({ card }) => {
 
-  function formatTimestamp(timestamp) {
-    if (!timestamp) return "Unknown";
-    const options = {
-      year: "numeric",
-      month: "2-digit",
-      day: "2-digit",
-      hour: "2-digit",
-      minute: "2-digit",
-      hour12: true,
-    };
-    const date = new Date(timestamp);
-    return date.toLocaleString('en-US', { timeZone: 'Asia/Kolkata' };
+ function formatTimestamp(timestamp, timeZone) {
+  if (!timestamp) return "Unknown";
+
+  const options = {
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: true,
+    timeZone: timeZone || Intl.DateTimeFormat().resolvedOptions().timeZone,
+  };
+
+  const date = new Date(timestamp);
+  return date.toLocaleString("en-US", options);
   }
 
   const createdDateTime = formatTimestamp((card.createdAt===card.updatedAt)?card.createdAt:card.updatedAt);
