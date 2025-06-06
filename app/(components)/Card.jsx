@@ -17,7 +17,7 @@ const Card = ({ card }) => {
       hour12: true,
     };
     const date = new Date(timestamp);
-    return date.toLocaleString("en-US", options);
+    return date.toLocaleString('en-US', { timeZone: 'Asia/Kolkata' };
   }
 
   const createdDateTime = formatTimestamp((card.createdAt===card.updatedAt)?card.createdAt:card.updatedAt);
